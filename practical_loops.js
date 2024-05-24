@@ -13,7 +13,7 @@ for (let i = 0; i <= 100; i++){
         if (i%3 === 0){
             phrase = "Fizz";
         }
-        if (i%5 === 0 && phrase != ""){
+        if (i%5 === 0 && phrase){
             phrase = phrase + " Buzz";
         }else {
             phrase = "Buzz";
@@ -25,42 +25,34 @@ for (let i = 0; i <= 100; i++){
 
 // Prime Time
 //Define arbitrary number, n
-//Create a loop that searches fo rth next prime number
+//Create a loop that searches for the next prime number
 // When you find the prme number, exit the loop
 
 //Set variable and use while loop to increment through various numbers
 
-let n = 50;
+let n = 2;
 
 
-findPrime: {
-    while (n >= 50){
-        let isPrime = true; //need to reset to true for the next iteration of the while loop
-       
-        if (n == 1 || n == 2){
-            console.log(n);
-            break findPrime;
-        }
+while (true) {
+    n++;
+    let isPrime = true; //need to reset to true for the next iteration of the while loop
 
-        //Check if n current value is prime
-        //Check every number up until the square root of n is divisible
-        //If divisible aka modulous equals 0, then break and set isPrime to false
-        for (let i=2; i < Math.sqrt(n); i ++){
-            if (n%i === 0){ // n is not prime
-                isPrime = false;
-                break;
-            }
+    //Check if n current value is prime
+    //Check every number up until the square root of n is divisible
+    //If divisible aka modulous equals 0, then break and set isPrime to false
+
+    for (let i=2; i < n; i ++){ 
+        if (n%i === 0 || n === i){ // n is not prime
+            isPrime = false;
+            break;
         }
-        
-        if (isPrime){
-            console.log(n);
-            break findPrime;
-        }
-        
-        n ++;
+    }
+    
+    if (isPrime){
+        console.log(n);
+        break;
     }
 }
-
 // Feeling Loopy
 // Loop through CSV string and store each "cell" of data in a variable
 // Comma = move to the next cell
@@ -78,8 +70,6 @@ let cell3 = "";
 let cell4 = "";
 
 let data = "";
-
-console.log("CSV Length is " + CSV.length - 1);
 
 for (const c in CSV) {
     if (CSV[c] !== ","){
